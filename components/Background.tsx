@@ -4,8 +4,15 @@ import { useEffect, useRef } from "react";
 
 export function Background() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
   useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.play().catch((err) => {
+        console.warn("Video auto-play failed:", err);
+      });
+    }
+
     const canvas = canvasRef.current;
     if (!canvas) return;
     const ctx = canvas.getContext("2d");
@@ -73,14 +80,16 @@ export function Background() {
     <div className="fixed inset-0 -z-50 h-full w-full bg-[#0a0a0c] overflow-hidden">
       {/* Layer 0: The World (Video Background) */}
       <video
+        ref={videoRef}
         autoPlay
         loop
         muted
         playsInline
+        preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: "blur(3px) brightness(0.5)" }}
+        style={{ filter: "blur(5px) brightness(0.7)" }}
       >
-        <source src="/background-video.mp4" type="video/mp4" />
+        <source src="/new_low_background.mp4" type="video/mp4" />
       </video>
 
       {/* Layer 0.5: Gradient Overlay for better text contrast */}
