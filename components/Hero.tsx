@@ -159,6 +159,12 @@ export function Hero() {
               Begin Journey
             </Button>
             <Button 
+              onClick={() => window.open('https://drive.google.com/file/d/1xgBsi64puPPKC19Q1oIKLzLcjSrtUZSD/view?usp=sharing', '_blank')}
+              className="hover:shadow-[0_0_20px_rgba(195,162,103,0.5)] transition-all duration-300 hover:scale-105"
+            >
+              View Resume
+            </Button>
+            <Button 
               variant="secondary"
               onClick={() => window.open('https://github.com/KavyaNagariya', '_blank')}
               className="hover:shadow-[0_0_20px_rgba(229,229,229,0.2)] transition-all duration-300 hover:scale-105"
