@@ -1,5 +1,6 @@
 # 💫 About Me:
 Hi, I'm Kavya 👋  <br><br>A Computer Science student driven by curiosity and long-term ambition.  <br>I enjoy breaking down complex problems, strengthening my core fundamentals, and building systems from scratch.<br><br>Currently working on:<br>- Data Structures & Algorithms <br>- Deepening my understanding of core CS concepts<br>- Creating projects that reflect both logic and creativity  <br><br>My long-term goal is to contribute to world-class tech products and eventually build a game studio inspired by Indian mythology and culture.<br><br>Consistency > Motivation.<br>
+<br>My Portfolio- https://kavya-nagariya.vercel.app/ <br>
 
 
 ## 🌐 Socials:
