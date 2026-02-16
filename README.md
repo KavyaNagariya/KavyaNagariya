@@ -1,7 +1,7 @@
 # 💫 About Me:
 Hi, I'm Kavya 👋  <br><br>A Computer Science student driven by curiosity and long-term ambition.  <br>I enjoy breaking down complex problems, strengthening my core fundamentals, and building systems from scratch.<br><br>Currently working on:<br>- Data Structures & Algorithms <br>- Deepening my understanding of core CS concepts<br>- Creating projects that reflect both logic and creativity  <br><br>My long-term goal is to contribute to world-class tech products and eventually build a game studio inspired by Indian mythology and culture.<br><br>Consistency > Motivation.<br>
-<br>My Portfolio- https://kavya-nagariya.vercel.app/ <br>
 
+## 🎨 Portfolio: [The Tarnished Archive](https://kavya-nagariya.vercel.app/)
 
 ## 🌐 Socials:
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-%230077B5.svg?logo=linkedin&logoColor=white)](https://www.linkedin.com/in/kavya-nagariya-a55107318/) [![Medium](https://img.shields.io/badge/Medium-12100E?logo=medium&logoColor=white)](https://medium.com/@mehukavyanagariya) [![X](https://img.shields.io/badge/X-black.svg?logo=X&logoColor=white)](https://x.com/nagariya_kavya) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:kavyanagaria402@gmail.com) 
