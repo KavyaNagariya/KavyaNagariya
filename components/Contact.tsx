@@ -1,7 +1,7 @@
 "use client";
 
 import { Panel } from "./ui/Panel";
-import { Mail, Github, Linkedin, MapPin } from "lucide-react";
+import { Mail, Github, Linkedin, MapPin, Coffee } from "lucide-react";
 import { motion } from "framer-motion";
 
 export function Contact() {
@@ -90,6 +90,18 @@ export function Contact() {
               aria-label="LinkedIn"
             >
               <Linkedin className="w-8 h-8 text-gold-muted group-hover:text-gold-bright" />
+            </motion.a>
+            <motion.a 
+              href="https://buymeacoffee.com/mehukavyanp" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              variants={pulseVariants}
+              initial="initial"
+              animate="animate"
+              className="p-4 border border-gold-muted/40 rounded-full hover:border-gold-bright hover:bg-gold-muted/10 transition-all group"
+              aria-label="Buy Me a Coffee"
+            >
+              <Coffee className="w-8 h-8 text-gold-muted group-hover:text-gold-bright" />
             </motion.a>
           </motion.div>
         </motion.div>
