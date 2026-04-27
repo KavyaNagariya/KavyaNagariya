@@ -6,6 +6,7 @@ const navItems = [
   { name: "Grace", href: "#hero" }, // Home
   { name: "Lore", href: "#about" }, // About
   { name: "Inventory", href: "#skills" }, // Skills
+  { name: "Achievements", href: "#certifications" }, // Certifications
   { name: "Quests", href: "#projects" }, // Projects
   { name: "Summon", href: "#contact" }, // Contact
 ];

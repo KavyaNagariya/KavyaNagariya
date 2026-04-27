@@ -97,15 +97,6 @@ export function Hero() {
           initial="hidden"
           animate="visible"
         >
-          <motion.h2 
-            initial={{ opacity: 0, letterSpacing: "0.5em" }}
-            animate={{ opacity: 1, letterSpacing: "0.2em" }}
-            transition={{ duration: 1.5 }}
-            className="text-gold-muted tracking-[0.2em] mb-4 text-sm md:text-base font-cinzel uppercase"
-          >
-            The Portfolio of
-          </motion.h2>
-          
           <div className="flex flex-col items-center mb-8">
             <motion.h1 
               variants={lineVariants}
