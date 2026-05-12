@@ -1,28 +1,22 @@
 "use client";
 
-import { Panel } from "./ui/Panel";
-import { Code, Terminal, Cpu, Brain } from "lucide-react";
 import { motion } from "framer-motion";
 
 const skillCategories = [
   {
     title: "Languages",
-    icon: Code,
     items: ["C++", "Python", "C", "Java"]
   },
   {
     title: "Core Arts",
-    icon: Brain,
     items: ["Data Structures", "Algorithms", "OOP", "Memory Management"]
   },
   {
     title: "Artifacts",
-    icon: Terminal,
     items: ["Git & GitHub", "VS Code", "AI Coding Tools", "WSL"]
   },
   {
     title: "Arcane Tech",
-    icon: Cpu,
     items: ["Generative AI", "Agentic AI", "Prompt Engineering", "Web Dev"]
   }
 ];
@@ -32,68 +26,62 @@ export function Skills() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.15,
-      },
+      transition: { staggerChildren: 0.2 },
     },
   };
 
   const itemVariants: any = {
-    hidden: { opacity: 0, scale: 0.8 },
-    visible: { 
-      opacity: 1, 
-      scale: 1,
-      transition: { duration: 0.5, ease: "easeOut" }
-    },
+    hidden: { opacity: 0, y: 10 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } },
   };
 
   return (
-    <section id="skills" className="py-24 px-4 md:px-8 max-w-5xl mx-auto">
-      <motion.h2 
-        initial={{ opacity: 0, letterSpacing: "0.4em", filter: "blur(10px)" }}
-        whileInView={{ opacity: 1, letterSpacing: "0.1em", filter: "blur(0px)" }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="text-4xl md:text-5xl font-cinzel text-center text-gold-muted mb-16 drop-shadow-lg uppercase"
-      >
-        Inventory
-      </motion.h2>
-      
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
-      >
-        {skillCategories.map((category) => (
-          <Panel key={category.title} className="h-full">
-            <div className="flex items-center gap-3 mb-6 border-b border-gold-muted/20 pb-4">
-              <category.icon className="w-6 h-6 text-gold-bright" />
-              <h3 className="text-xl font-cinzel text-parchment uppercase tracking-widest">{category.title}</h3>
-            </div>
-            
-            <div className="flex flex-wrap gap-3">
-              {category.items.map((skill) => (
-                <motion.div 
-                  key={skill}
-                  variants={itemVariants}
-                  whileHover={{ 
-                    scale: 1.1, 
-                    backgroundColor: "#c3a267", // gold-muted
-                    color: "#0a0a0c", // tarnished-dark
-                    boxShadow: "0 0 15px rgba(195, 162, 103, 0.6)",
-                    borderColor: "#ffd700" // gold-bright
-                  }}
-                  className="px-3 py-1 bg-black/40 border border-gold-muted/30 rounded text-sm font-spectral text-parchment/80 transition-all duration-300 cursor-default"
-                >
-                  {skill}
-                </motion.div>
-              ))}
-            </div>
-          </Panel>
-        ))}
-      </motion.div>
+    <section id="skills" className="py-24 px-6 md:px-12 lg:px-24">
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16">
+        
+        <div className="md:w-1/4">
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 2 }}
+            className="text-xs md:text-sm font-cinzel text-gold-muted/80 uppercase tracking-[0.3em]"
+          >
+            Inventory
+          </motion.h2>
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="w-10 h-[1px] bg-gold-muted/30 mt-4 origin-left"
+          />
+        </div>
+
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="md:w-3/4 flex flex-col gap-12"
+        >
+          {skillCategories.map((category) => (
+            <motion.div key={category.title} variants={itemVariants} className="flex flex-col gap-4">
+              <h3 className="text-sm md:text-base font-cinzel text-parchment/40 uppercase tracking-[0.2em]">{category.title}</h3>
+              <div className="flex flex-wrap gap-x-6 gap-y-2">
+                {category.items.map((skill) => (
+                  <span 
+                    key={skill}
+                    className="text-sm md:text-base font-spectral text-gold-muted/70 tracking-wide font-light"
+                  >
+                    {skill}
+                  </span>
+                ))}
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 }

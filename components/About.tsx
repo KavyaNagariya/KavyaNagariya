@@ -1,6 +1,5 @@
 "use client";
 
-import { Panel } from "./ui/Panel";
 import { motion } from "framer-motion";
 
 export function About() {
@@ -9,35 +8,50 @@ export function About() {
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.3,
-        delayChildren: 0.2,
+        staggerChildren: 0.2,
       },
     },
   };
 
-  const textVariants = {
-    hidden: { opacity: 0, x: -10 },
+  const textVariants: any = {
+    hidden: { opacity: 0, y: 10, filter: "blur(4px)" },
     visible: { 
       opacity: 1, 
-      x: 0,
-      transition: { duration: 0.8 }
+      y: 0,
+      filter: "blur(0px)",
+      transition: { duration: 1.5, ease: "easeOut" }
     },
   };
 
   return (
-    <section id="about" className="py-20 px-4 md:px-8 max-w-5xl mx-auto">
-      <Panel 
-        title="Lore & Background"
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true }}
-      >
+    <section id="about" className="py-24 px-6 md:px-12 lg:px-24">
+      <div className="max-w-5xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16">
+        
+        <div className="md:w-1/4">
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 2 }}
+            className="text-xs md:text-sm font-cinzel text-gold-muted/80 uppercase tracking-[0.3em]"
+          >
+            Lore & Background
+          </motion.h2>
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="w-10 h-[1px] bg-gold-muted/30 mt-4 origin-left"
+          />
+        </div>
+
         <motion.div 
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{ once: true }}
-          className="font-spectral text-lg leading-relaxed space-y-6 text-parchment/90"
+          viewport={{ once: true, margin: "-100px" }}
+          className="md:w-3/4 font-spectral text-base md:text-lg leading-relaxed space-y-6 text-parchment/60 font-light"
         >
           <motion.p variants={textVariants}>
             I am a second-year B.Tech student in Computer Science (Artificial Intelligence) at the University of Lucknow. 
@@ -56,7 +70,7 @@ export function About() {
             great open-source archives.
           </motion.p>
         </motion.div>
-      </Panel>
+      </div>
     </section>
   );
 }

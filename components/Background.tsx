@@ -24,36 +24,30 @@ export function Background() {
     canvas.height = height;
 
     const particles: { x: number; y: number; speed: number; opacity: number; size: number }[] = [];
-    const particleCount = 80; // Increased count for better density
+    const particleCount = 30; // Reduced for extreme minimal
 
     for (let i = 0; i < particleCount; i++) {
       particles.push({
         x: Math.random() * width,
         y: Math.random() * height,
-        speed: Math.random() * 0.3 + 0.1, // Slow, floating embers
-        opacity: Math.random() * 0.5 + 0.1,
-        size: Math.random() * 2 + 0.5,
+        speed: Math.random() * 0.1 + 0.05, // Slower, ethereal
+        opacity: Math.random() * 0.3 + 0.05,
+        size: Math.random() * 1.5 + 0.5,
       });
     }
 
     const draw = () => {
       ctx.clearRect(0, 0, width, height);
       
-      // Draw Particles (Embers)
       particles.forEach((p) => {
-        // Gold/Fire color: slightly reddish-yellow
         ctx.fillStyle = `rgba(195, 162, 103, ${p.opacity})`; 
         ctx.beginPath();
         ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
         ctx.fill();
 
-        // Move upwards slowly
         p.y -= p.speed;
-        
-        // Horizontal drift
-        p.x += Math.sin(p.y * 0.01) * 0.2;
+        p.x += Math.sin(p.y * 0.005) * 0.1;
 
-        // Reset if off screen (top)
         if (p.y < -10) {
           p.y = height + 10;
           p.x = Math.random() * width;
@@ -78,7 +72,7 @@ export function Background() {
 
   return (
     <div className="fixed inset-0 -z-50 h-full w-full bg-[#0a0a0c] overflow-hidden">
-      {/* Layer 0: The World (Video Background) */}
+      {/* Video Background - Darker, more blurred */}
       <video
         ref={videoRef}
         autoPlay
@@ -87,35 +81,23 @@ export function Background() {
         playsInline
         preload="auto"
         className="absolute inset-0 w-full h-full object-cover"
-        style={{ filter: "blur(5px) brightness(0.7)" }}
+        style={{ filter: "blur(8px) brightness(0.4)" }}
       >
         <source src="/new_low_background.mp4" type="video/mp4" />
       </video>
 
-      {/* Layer 0.5: Gradient Overlay for better text contrast */}
-      <div 
-        className="absolute inset-0 opacity-100"
-        style={{
-          background: `
-            radial-gradient(circle at 50% 120%, rgba(26, 26, 32, 0.2) 0%, rgba(10, 10, 12, 0.4) 60%),
-            linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(10,10,12,0.6) 100%)
-          `
-        }}
-      />
-      
-      {/* Subtle Texture Overlay */}
-      <div 
-        className="absolute inset-0 opacity-[0.03] pointer-events-none"
-        style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E")`
-        }} 
-      />
+      {/* Mist Layers */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none mix-blend-screen">
+        <div className="absolute -top-[10%] -left-[10%] w-[60%] h-[60%] bg-gold-muted/5 blur-[120px] rounded-full animate-mist-1" />
+        <div className="absolute top-[40%] -right-[10%] w-[70%] h-[70%] bg-gold-muted/5 blur-[150px] rounded-full animate-mist-2" />
+        <div className="absolute -bottom-[20%] left-[20%] w-[80%] h-[50%] bg-parchment/5 blur-[100px] rounded-full animate-mist-3" />
+      </div>
 
-      {/* Layer 1: The Atmosphere (Particles) */}
-      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none" />
+      {/* Extreme Vignette for Focus */}
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_0%,#0a0a0c_100%)] opacity-95" />
       
-      {/* Layer 2: Vignette to focus center content */}
-      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_center,transparent_10%,#000000_120%)] opacity-60" />
+      {/* Canvas for sparse particles */}
+      <canvas ref={canvasRef} className="absolute inset-0 pointer-events-none mix-blend-screen opacity-50" />
     </div>
   );
 }

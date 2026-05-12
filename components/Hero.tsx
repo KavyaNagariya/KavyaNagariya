@@ -2,169 +2,90 @@
 
 import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
-import { useState, useEffect } from "react";
-
-const quotes = [
-  { text: "The only way to learn a new programming language is by writing programs in it.", author: "Dennis Ritchie" },
-  { text: "Code is like humor. When you have to explain it, it’s bad.", author: "Cory House" },
-  { text: "First, solve the problem. Then, write the code.", author: "John Johnson" },
-  { text: "Software is a great combination between artistry and engineering.", author: "Bill Gates" },
-  { text: "Computers are incredibly fast, accurate, and stupid. Human beings are incredibly slow, inaccurate, and brilliant. Together they are powerful beyond imagination.", author: "Albert Einstein" }
-];
+import { Github, Linkedin, Coffee } from "lucide-react";
 
 export function Hero() {
-  const [quote, setQuote] = useState(quotes[0]);
-  const firstName = "Kavya";
-  const lastName = "Nagariya";
-
-  useEffect(() => {
-    const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
-    setQuote(randomQuote);
-  }, []);
-
   const containerVariants: any = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
-        delayChildren: 0.3,
+        staggerChildren: 0.2,
+        delayChildren: 0.5,
       },
     },
   };
 
-  const lineVariants: any = {
+  const textVariants: any = {
     hidden: { 
       opacity: 0,
-      y: 50,
-      clipPath: "inset(0% 0% 100% 0%)"
+      y: 20,
+      filter: "blur(8px)",
     },
     visible: { 
-      opacity: 1,
+      opacity: 1, 
       y: 0,
-      clipPath: "inset(0% 0% 0% 0%)",
+      filter: "blur(0px)",
       transition: {
-        duration: 1.5,
+        duration: 2,
         ease: [0.22, 1, 0.36, 1]
       }
     }
   };
 
-  const letterVariants: any = {
-    hidden: { 
-      opacity: 0, 
-      filter: "blur(8px)",
-      scale: 1.5,
-    },
-    visible: { 
-      opacity: 1, 
-      filter: "blur(0px)",
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    },
-  };
-
-  const subtitleVariants: any = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
-      y: 0,
-      transition: {
-        duration: 1.5,
-        delay: 2,
-        ease: "easeOut"
-      },
-    },
-  };
-
-  const dividerVariants: any = {
-    hidden: { scaleX: 0, opacity: 0 },
-    visible: { 
-      scaleX: 1, 
-      opacity: 1,
-      transition: { duration: 1.5, delay: 1.5, ease: "easeInOut" }
-    }
-  };
-
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative pt-16 overflow-hidden">
-      <div className="text-center px-4 max-w-4xl mx-auto z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
+    <section id="hero" className="min-h-screen flex items-center relative px-6 md:px-12 lg:px-24 pt-32">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="w-full max-w-7xl mx-auto flex flex-col items-start"
+      >
+        <motion.h1 
+          variants={textVariants}
+          className="text-5xl md:text-7xl lg:text-8xl font-cinzel text-parchment leading-[0.9] mb-8 -ml-1"
         >
-          <div className="flex flex-col items-center mb-8">
-            <motion.h1 
-              variants={lineVariants}
-              className="text-5xl md:text-7xl lg:text-8xl font-cinzel text-parchment leading-tight tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] flex justify-center"
-            >
-              {firstName.split("").map((char, index) => (
-                <motion.span key={index} variants={letterVariants} className="inline-block">
-                  {char}
-                </motion.span>
-              ))}
-            </motion.h1>
-            <motion.h1 
-              variants={lineVariants}
-              className="text-5xl md:text-7xl lg:text-8xl font-cinzel text-gold-muted leading-tight tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] flex justify-center"
-            >
-              {lastName.split("").map((char, index) => (
-                <motion.span key={index} variants={letterVariants} className="inline-block">
-                  {char}
-                </motion.span>
-              ))}
-            </motion.h1>
-          </div>
+          Kavya<br />Nagariya
+        </motion.h1>
+        <motion.div variants={textVariants} className="max-w-xl">
+          <p className="font-spectral text-base md:text-lg text-parchment/60 leading-relaxed font-light italic">
+            "Software is a great combination between artistry and engineering. First, solve the problem. Then, write the code."
+          </p>
+        </motion.div>
 
-          <motion.div 
-            variants={dividerVariants}
-            className="h-px w-48 mx-auto bg-gradient-to-r from-transparent via-gold-muted to-transparent mb-8 origin-center" 
-          />
-          
-          <motion.div 
-            variants={subtitleVariants}
-            className="max-w-2xl mx-auto mb-12"
-          >
-            <p className="font-spectral text-lg md:text-xl text-parchment/80 italic leading-relaxed mb-2">
-              "{quote.text}"
-            </p>
-            <p className="text-gold-muted font-cinzel text-sm tracking-widest uppercase">
-              — {quote.author}
-            </p>
-          </motion.div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.5, duration: 1 }}
-            className="flex flex-col md:flex-row gap-6 justify-center items-center"
-          >
-            <Button 
-              onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
-              className="hover:shadow-[0_0_20px_rgba(195,162,103,0.5)] transition-all duration-300 hover:scale-105"
-            >
-              Begin Journey
-            </Button>
-            <Button 
-              onClick={() => window.open('https://drive.google.com/file/d/1xgBsi64puPPKC19Q1oIKLzLcjSrtUZSD/view?usp=sharing', '_blank')}
-              className="hover:shadow-[0_0_20px_rgba(195,162,103,0.5)] transition-all duration-300 hover:scale-105"
-            >
-              View Resume
+        <motion.div variants={textVariants} className="flex flex-wrap items-center gap-x-12 gap-y-8 mt-12">
+          <div className="flex flex-wrap gap-8">
+            <Button onClick={() => document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })}>
+              View Archive
             </Button>
             <Button 
               variant="secondary"
-              onClick={() => window.open('https://github.com/KavyaNagariya', '_blank')}
-              className="hover:shadow-[0_0_20px_rgba(229,229,229,0.2)] transition-all duration-300 hover:scale-105"
+              onClick={() => window.open('https://drive.google.com/file/d/1xgBsi64puPPKC19Q1oIKLzLcjSrtUZSD/view?usp=sharing', '_blank')}
             >
-              View GitHub
+              Resume
             </Button>
-          </motion.div>
+          </div>
+
+          <div className="flex gap-6 items-center border-l border-gold-muted/10 pl-12 hidden md:flex">
+            {[
+              { name: "GitHub", url: "https://github.com/KavyaNagariya", icon: Github },
+              { name: "LinkedIn", url: "https://linkedin.com/in/kavya-nagariya-a55107318", icon: Linkedin },
+              { name: "Support", url: "https://buymeacoffee.com/mehukavyanp", icon: Coffee }
+            ].map((link) => (
+              <a 
+                key={link.name}
+                href={link.url} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-gold-muted/40 hover:text-gold-bright transition-all duration-500 hover:scale-110"
+                aria-label={link.name}
+              >
+                <link.icon className="w-5 h-5" />
+              </a>
+            ))}
+          </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

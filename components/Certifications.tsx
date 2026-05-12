@@ -1,9 +1,7 @@
 "use client";
 
-import { Panel } from "./ui/Panel";
-import { Award, ExternalLink } from "lucide-react";
 import { motion } from "framer-motion";
-import { Button } from "./ui/Button";
+import { ExternalLink } from "lucide-react";
 
 const certifications = [
   {
@@ -27,58 +25,73 @@ export function Certifications() {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
-      transition: {
-        staggerChildren: 0.2,
-      },
+      transition: { staggerChildren: 0.3 },
     },
   };
 
-  return (
-    <section id="certifications" className="py-24 px-4 md:px-8 max-w-5xl mx-auto">
-      <motion.h2 
-        initial={{ opacity: 0, letterSpacing: "0.4em", filter: "blur(10px)" }}
-        whileInView={{ opacity: 1, letterSpacing: "0.1em", filter: "blur(0px)" }}
-        viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="text-4xl md:text-5xl font-cinzel text-center text-gold-muted mb-16 drop-shadow-lg uppercase"
-      >
-        Achievements
-      </motion.h2>
-      
-      <motion.div 
-        variants={containerVariants}
-        initial="hidden"
-        whileInView="visible"
-        viewport={{ once: true, margin: "-100px" }}
-        className="grid grid-cols-1 md:grid-cols-2 gap-8"
-      >
-        {certifications.map((cert) => (
-          <Panel key={cert.title} className="flex flex-col h-full">
-            <div className="flex items-start gap-4 mb-6 border-b border-gold-muted/20 pb-4">
-              <div className="p-3 bg-gold-muted/10 rounded-sm">
-                <Award className="w-8 h-8 text-gold-bright" />
-              </div>
-              <div>
-                <h3 className="text-xl font-cinzel text-parchment uppercase tracking-wider leading-tight mb-1">{cert.title}</h3>
-                <p className="text-gold-muted text-sm font-cinzel tracking-widest">{cert.issuer} • {cert.date}</p>
-              </div>
-            </div>
-            
-            <p className="font-spectral text-parchment/70 mb-8 flex-grow leading-relaxed">
-              {cert.description}
-            </p>
+  const itemVariants: any = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { opacity: 1, y: 0, transition: { duration: 1.5, ease: "easeOut" } },
+  };
 
-            <div className="mt-auto">
-              <Button 
-                onClick={() => window.open(cert.link, '_blank')}
-                className="w-full text-xs"
-              >
-                View Credential <ExternalLink className="w-4 h-4 ml-2" />
-              </Button>
-            </div>
-          </Panel>
-        ))}
-      </motion.div>
+  return (
+    <section id="certifications" className="py-24 px-6 md:px-12 lg:px-24">
+      <div className="max-w-6xl mx-auto flex flex-col md:flex-row gap-8 md:gap-16">
+        
+        <div className="md:w-1/4">
+          <motion.h2 
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true, margin: "-100px" }}
+            transition={{ duration: 2 }}
+            className="text-xs md:text-sm font-cinzel text-gold-muted/80 uppercase tracking-[0.3em]"
+          >
+            Achievements
+          </motion.h2>
+          <motion.div 
+            initial={{ scaleX: 0 }}
+            whileInView={{ scaleX: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 1.5, ease: "easeInOut" }}
+            className="w-10 h-[1px] bg-gold-muted/30 mt-4 origin-left"
+          />
+        </div>
+
+        <motion.div 
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-100px" }}
+          className="md:w-3/4 flex flex-col gap-16"
+        >
+          {certifications.map((cert) => (
+            <motion.div key={cert.title} variants={itemVariants} className="group flex flex-col border-t border-gold-muted/10 pt-10">
+              <h3 className="text-xl md:text-2xl font-cinzel text-parchment mb-3 group-hover:text-gold-muted transition-colors duration-700">
+                {cert.title}
+              </h3>
+              <p className="text-gold-muted/70 font-cinzel text-[10px] uppercase tracking-[0.2em] mb-6">
+                {cert.issuer} • {cert.date}
+              </p>
+              
+              <p className="font-spectral text-base md:text-lg text-parchment/60 leading-relaxed font-light mb-6">
+                {cert.description}
+              </p>
+
+              <div>
+                <a 
+                  href={cert.link} 
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 text-[10px] font-cinzel text-gold-muted/60 uppercase tracking-[0.2em] hover:text-gold-bright transition-colors duration-500 group/link"
+                >
+                  <span className="w-6 h-[1px] bg-gold-muted/20 group-hover/link:bg-gold-bright/50 transition-colors duration-500" />
+                  View Credential
+                </a>
+              </div>
+            </motion.div>
+          ))}
+        </motion.div>
+      </div>
     </section>
   );
 }
