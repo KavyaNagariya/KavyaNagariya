@@ -1,9 +1,18 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { Github, Linkedin, Coffee } from "lucide-react";
+import { Github, Linkedin, Coffee, Copy, Check } from "lucide-react";
+import { useState } from "react";
 
 export function Contact() {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = () => {
+    navigator.clipboard.writeText("kavyanagaria402@gmail.com");
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -55,9 +64,25 @@ export function Contact() {
           </motion.div>
 
           <motion.div variants={textVariants} className="flex flex-col gap-4">
-            <a href="mailto:kavyanagaria402@gmail.com" className="text-gold-muted/80 hover:text-parchment transition-colors duration-700 font-cinzel tracking-[0.2em] text-xs md:text-sm uppercase">
-              kavyanagaria402@gmail.com
-            </a>
+            <div className="flex items-center gap-3">
+              <a 
+                href="mailto:kavyanagaria402@gmail.com" 
+                className="text-gold-muted/80 hover:text-parchment transition-colors duration-700 font-spectral italic tracking-wide text-lg md:text-xl"
+              >
+                kavyanagaria402@gmail.com
+              </a>
+              <button 
+                onClick={handleCopy}
+                className="p-1.5 rounded-md hover:bg-gold-muted/10 text-gold-muted/40 hover:text-gold-bright transition-all duration-300"
+                title="Copy email"
+              >
+                {copied ? (
+                  <Check className="w-3.5 h-3.5 md:w-4 md:h-4 text-green-500/80" />
+                ) : (
+                  <Copy className="w-3.5 h-3.5 md:w-4 md:h-4" />
+                )}
+              </button>
+            </div>
             <div className="text-gold-muted/30 font-spectral tracking-[0.2em] text-[10px] uppercase">
               Lucknow, India
             </div>
