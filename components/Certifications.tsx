@@ -40,7 +40,7 @@ export function Certifications() {
         whileInView={{ opacity: 1, letterSpacing: "0.1em", filter: "blur(0px)" }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="text-4xl md:text-5xl font-cinzel text-center text-gold-muted mb-16 drop-shadow-lg uppercase"
+        className="text-4xl md:text-5xl font-iosevka text-center text-gold-muted mb-16 drop-shadow-lg uppercase"
       >
         Achievements
       </motion.h2>
@@ -59,12 +59,12 @@ export function Certifications() {
                 <Award className="w-8 h-8 text-gold-bright" />
               </div>
               <div>
-                <h3 className="text-xl font-cinzel text-parchment uppercase tracking-wider leading-tight mb-1">{cert.title}</h3>
-                <p className="text-gold-muted text-sm font-cinzel tracking-widest">{cert.issuer} • {cert.date}</p>
+                <h3 className="text-xl font-iosevka text-parchment uppercase tracking-wider leading-tight mb-1">{cert.title}</h3>
+                <p className="text-gold-muted text-sm font-iosevka tracking-widest">{cert.issuer} • {cert.date}</p>
               </div>
             </div>
             
-            <p className="font-spectral text-parchment/70 mb-8 flex-grow leading-relaxed">
+            <p className="text-parchment/70 mb-8 flex-grow leading-relaxed">
               {cert.description}
             </p>
 

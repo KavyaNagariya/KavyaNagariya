@@ -74,7 +74,7 @@ export function AudioControl() {
       </motion.button>
 
       {/* Label Tooltip */}
-      <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1 bg-tarnished-panel border border-gold-muted/20 text-gold-muted text-[10px] tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none font-cinzel">
+      <span className="absolute right-full mr-4 top-1/2 -translate-y-1/2 px-3 py-1 bg-tarnished-panel border border-gold-muted/20 text-gold-muted text-[10px] tracking-widest uppercase opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none font-iosevka">
         {isPlaying ? "Mute Atmosphere" : "Awaken Atmosphere"}
       </span>
     </div>

@@ -37,7 +37,7 @@ export function About() {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true }}
-          className="font-spectral text-lg leading-relaxed space-y-6 text-parchment/90"
+          className="text-lg leading-relaxed space-y-6 text-parchment/90"
         >
           <motion.p variants={textVariants}>
             I am a second-year B.Tech student in Computer Science (Artificial Intelligence) at the University of Lucknow. 

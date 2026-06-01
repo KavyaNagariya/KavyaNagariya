@@ -46,10 +46,10 @@ export function Contact() {
           className="flex flex-col md:flex-row gap-12 items-center justify-center p-4"
         >
           <motion.div variants={itemVariants} className="space-y-6 text-center md:text-left">
-            <h3 className="text-2xl font-cinzel text-parchment">
+            <h3 className="text-2xl font-iosevka text-parchment">
               Leave a Message
             </h3>
-            <p className="font-spectral text-parchment/80 max-w-md">
+            <p className="text-parchment/80 max-w-md">
               Whether you seek to ally for a new quest or simply wish to exchange knowledge, 
               my summoning sign is always active.
             </p>
@@ -57,11 +57,11 @@ export function Contact() {
             <div className="space-y-4">
               <div className="flex items-center gap-3 justify-center md:justify-start text-gold-muted">
                 <MapPin className="w-5 h-5" />
-                <span className="font-spectral">Lucknow, India</span>
+                <span>Lucknow, India</span>
               </div>
               <a href="mailto:kavyanagaria402@gmail.com" className="flex items-center gap-3 justify-center md:justify-start text-gold-muted hover:text-gold-bright transition-colors">
                 <Mail className="w-5 h-5" />
-                <span className="font-spectral">kavyanagaria402@gmail.com</span>
+                <span className="font-jetbrains">kavyanagaria402@gmail.com</span>
               </a>
             </div>
           </motion.div>

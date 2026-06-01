@@ -54,7 +54,7 @@ export function Skills() {
         whileInView={{ opacity: 1, letterSpacing: "0.1em", filter: "blur(0px)" }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="text-4xl md:text-5xl font-cinzel text-center text-gold-muted mb-16 drop-shadow-lg uppercase"
+        className="text-4xl md:text-5xl font-iosevka text-center text-gold-muted mb-16 drop-shadow-lg uppercase"
       >
         Inventory
       </motion.h2>
@@ -70,7 +70,7 @@ export function Skills() {
           <Panel key={category.title} className="h-full">
             <div className="flex items-center gap-3 mb-6 border-b border-gold-muted/20 pb-4">
               <category.icon className="w-6 h-6 text-gold-bright" />
-              <h3 className="text-xl font-cinzel text-parchment uppercase tracking-widest">{category.title}</h3>
+              <h3 className="text-xl font-iosevka text-parchment uppercase tracking-widest">{category.title}</h3>
             </div>
             
             <div className="flex flex-wrap gap-3">
@@ -85,7 +85,7 @@ export function Skills() {
                     boxShadow: "0 0 15px rgba(195, 162, 103, 0.6)",
                     borderColor: "#ffd700" // gold-bright
                   }}
-                  className="px-3 py-1 bg-black/40 border border-gold-muted/30 rounded text-sm font-spectral text-parchment/80 transition-all duration-300 cursor-default"
+                  className="px-3 py-1 bg-black/40 border border-gold-muted/30 rounded text-sm text-parchment/80 transition-all duration-300 cursor-default"
                 >
                   {skill}
                 </motion.div>

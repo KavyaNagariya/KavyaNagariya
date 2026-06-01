@@ -56,7 +56,7 @@ export function Projects() {
         whileInView={{ opacity: 1, letterSpacing: "0.1em", filter: "blur(0px)" }}
         viewport={{ once: true }}
         transition={{ duration: 1.5, ease: "easeOut" }}
-        className="text-4xl md:text-5xl font-cinzel text-center text-gold-muted mb-16 drop-shadow-lg uppercase"
+        className="text-4xl md:text-5xl font-iosevka text-center text-gold-muted mb-16 drop-shadow-lg uppercase"
       >
         Great Souls Found
       </motion.h2>
@@ -73,13 +73,13 @@ export function Projects() {
             <Panel title={project.title} className="h-full">
               <div className="flex flex-col h-full justify-between">
                 <div>
-                  <p className="text-gold-muted/80 font-cinzel text-xs mb-2 uppercase tracking-[0.2em] font-bold">
+                  <p className="text-gold-muted/80 font-iosevka text-xs mb-2 uppercase tracking-[0.2em] font-bold">
                     {project.type}
                   </p>
-                  <p className="text-gold-bright/60 font-spectral italic text-sm mb-4">
+                  <p className="text-gold-bright/60 italic text-sm mb-4">
                     {project.tech}
                   </p>
-                  <p className="font-spectral text-parchment/80 leading-relaxed mb-6 text-sm md:text-base">
+                  <p className="text-parchment/80 leading-relaxed mb-6 text-sm md:text-base">
                     {project.desc}
                   </p>
                 </div>
@@ -90,7 +90,7 @@ export function Projects() {
                       href={project.links.github} 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-xs font-cinzel text-gold-muted hover:text-gold-bright transition-all hover:scale-105"
+                      className="flex items-center gap-2 text-xs font-iosevka text-gold-muted hover:text-gold-bright transition-all hover:scale-105"
                     >
                       <Github className="w-4 h-4" />
                       Examine Map
@@ -101,7 +101,7 @@ export function Projects() {
                       href={project.links.live} 
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="flex items-center gap-2 text-xs font-cinzel text-gold-muted hover:text-gold-bright transition-all hover:scale-105"
+                      className="flex items-center gap-2 text-xs font-iosevka text-gold-muted hover:text-gold-bright transition-all hover:scale-105"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Travel to Location

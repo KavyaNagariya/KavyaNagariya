@@ -100,7 +100,7 @@ export function Hero() {
           <div className="flex flex-col items-center mb-8">
             <motion.h1 
               variants={lineVariants}
-              className="text-5xl md:text-7xl lg:text-8xl font-cinzel text-parchment leading-tight tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] flex justify-center"
+              className="text-5xl md:text-7xl lg:text-8xl font-iosevka text-parchment leading-tight tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] flex justify-center"
             >
               {firstName.split("").map((char, index) => (
                 <motion.span key={index} variants={letterVariants} className="inline-block">
@@ -110,7 +110,7 @@ export function Hero() {
             </motion.h1>
             <motion.h1 
               variants={lineVariants}
-              className="text-5xl md:text-7xl lg:text-8xl font-cinzel text-gold-muted leading-tight tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] flex justify-center"
+              className="text-5xl md:text-7xl lg:text-8xl font-iosevka text-gold-muted leading-tight tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] flex justify-center"
             >
               {lastName.split("").map((char, index) => (
                 <motion.span key={index} variants={letterVariants} className="inline-block">
@@ -129,10 +129,10 @@ export function Hero() {
             variants={subtitleVariants}
             className="max-w-2xl mx-auto mb-12"
           >
-            <p className="font-spectral text-lg md:text-xl text-parchment/80 italic leading-relaxed mb-2">
+            <p className="text-lg md:text-xl text-parchment/80 italic leading-relaxed mb-2">
               "{quote.text}"
             </p>
-            <p className="text-gold-muted font-cinzel text-sm tracking-widest uppercase">
+            <p className="text-gold-muted font-iosevka text-sm tracking-widest uppercase">
               — {quote.author}
             </p>
           </motion.div>

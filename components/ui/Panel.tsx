@@ -133,7 +133,7 @@ export function Panel({
 
         {title && (
           <div className="relative mb-6">
-            <h2 className="text-2xl font-cinzel text-gold-muted text-center tracking-widest uppercase pb-4 group-hover:text-gold-bright transition-colors duration-300">
+            <h2 className="text-2xl font-iosevka text-gold-muted text-center tracking-widest uppercase pb-4 group-hover:text-gold-bright transition-colors duration-300">
               {title}
             </h2>
             <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-24 h-[1px] bg-gradient-to-r from-transparent via-gold-muted/40 to-transparent group-hover:via-gold-bright/60 transition-all duration-500 group-hover:w-32" />

@@ -10,7 +10,7 @@ export function Button({ className, variant = 'primary', children, ...props }: B
     <button
       className={twMerge(
         'relative px-8 py-3 overflow-hidden transition-all duration-300 group',
-        'font-cinzel tracking-wider text-sm font-bold uppercase',
+        'font-iosevka tracking-wider text-sm font-bold uppercase',
         'border border-gold-muted text-gold-muted',
         'hover:text-black hover:border-gold-bright hover:shadow-[0_0_20px_rgba(195,162,103,0.4)]',
         className

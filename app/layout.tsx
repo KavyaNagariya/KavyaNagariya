@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel_Decorative, Spectral } from "next/font/google";
+import { Cinzel_Decorative, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 
 const cinzel = Cinzel_Decorative({
@@ -9,10 +9,9 @@ const cinzel = Cinzel_Decorative({
   display: "swap",
 });
 
-const spectral = Spectral({
-  weight: ["400", "500", "600", "700"],
+const jetbrainsMono = JetBrains_Mono({
   subsets: ["latin"],
-  variable: "--font-spectral",
+  variable: "--font-jetbrains",
   display: "swap",
 });
 
@@ -29,7 +28,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark">
       <body
-        className={`${cinzel.variable} ${spectral.variable} antialiased bg-[#0a0a0c] text-[#e5e5e5]`}
+        className={`${cinzel.variable} ${jetbrainsMono.variable} antialiased bg-[#0a0a0c] text-[#e5e5e5]`}
       >
         {children}
       </body>

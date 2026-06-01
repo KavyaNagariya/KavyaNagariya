@@ -31,7 +31,7 @@ export function Navigation() {
                   document.querySelector(item.href)?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                <span className="font-cinzel text-xs md:text-sm tracking-[0.2em] text-gold-muted/70 group-hover:text-gold-bright transition-colors duration-300 uppercase">
+                <span className="font-iosevka text-xs md:text-sm tracking-[0.2em] text-gold-muted/70 group-hover:text-gold-bright transition-colors duration-300 uppercase">
                   {item.name}
                 </span>
                 <span className="absolute bottom-0 left-0 w-full h-[1px] bg-gold-bright scale-x-0 group-hover:scale-x-100 transition-transform duration-300 origin-center shadow-[0_0_8px_rgba(255,215,0,0.8)]" />
