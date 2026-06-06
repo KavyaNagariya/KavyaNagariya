@@ -11,19 +11,10 @@ Hi, I'm Kavya <br><br>A Computer Science student driven by curiosity and long-te
 
 # GitHub Stats:
 <p align="center">
-  <img src="https://github-readme-streak-stats.herokuapp.com/?user=KavyaNagariya&theme=one_dark_pro&hide_border=false" alt="Streak Stats" />
+  <a href="https://github.com/KavyaNagariya">
+    <img src="https://github-readme-streak-stats.herokuapp.com/?user=KavyaNagariya&theme=one_dark_pro&hide_border=false" alt="Streak Stats" />
+  </a>
 </p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=KavyaNagariya&theme=one_dark_pro&show_icons=true&hide_border=false" alt="GitHub Stats" />
-</p>
-
-<p align="center">
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=KavyaNagariya&theme=one_dark_pro&layout=compact&hide_border=false" alt="Top Languages" />
-</p>
-
----
-[![](https://visitcount.itsvg.in/api?id=KavyaNagariya&icon=0&color=0)](https://visitcount.itsvg.in)
 
  ## You can help me by Donating
  [![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-ffdd00?logo=buy-me-a-coffee&logoColor=black)](https://buymeacoffee.com/mehukavyanp) 
