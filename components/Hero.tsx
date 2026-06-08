@@ -2,7 +2,8 @@
 
 import { motion } from "framer-motion";
 import { Button } from "./ui/Button";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { GithubHeatmap } from "./GithubHeatmap";
 
 const quotes = [
   { text: "The only way to learn a new programming language is by writing programs in it.", author: "Dennis Ritchie" },
@@ -14,13 +15,48 @@ const quotes = [
 
 export function Hero() {
   const [quote, setQuote] = useState(quotes[0]);
+  const [clickCount, setClickCount] = useState(0);
+  const [isPlaying, setIsPlaying] = useState(false);
+  const audioRef = useRef<HTMLAudioElement | null>(null);
+  const clickTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
   const firstName = "Kavya";
   const lastName = "Nagariya";
 
   useEffect(() => {
     const randomQuote = quotes[Math.floor(Math.random() * quotes.length)];
     setQuote(randomQuote);
+    
+    if (audioRef.current) {
+      audioRef.current.volume = 0.15;
+    }
   }, []);
+
+  const handleNameClick = () => {
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+
+    if (clickTimeoutRef.current) {
+      clearTimeout(clickTimeoutRef.current);
+    }
+
+    clickTimeoutRef.current = setTimeout(() => {
+      setClickCount(0);
+    }, 2000);
+
+    if (newCount === 3) {
+      if (audioRef.current) {
+        if (isPlaying) {
+          audioRef.current.pause();
+          setIsPlaying(false);
+        } else {
+          audioRef.current.play().catch((err) => console.warn("Playback blocked:", err));
+          setIsPlaying(true);
+        }
+      }
+      setClickCount(0);
+    }
+  };
 
   const containerVariants: any = {
     hidden: { opacity: 0 },
@@ -28,56 +64,18 @@ export function Hero() {
       opacity: 1,
       transition: {
         staggerChildren: 0.1,
-        delayChildren: 0.3,
+        delayChildren: 0.1,
       },
     },
   };
 
-  const lineVariants: any = {
-    hidden: { 
-      opacity: 0,
-      y: 50,
-      clipPath: "inset(0% 0% 100% 0%)"
-    },
-    visible: { 
-      opacity: 1,
-      y: 0,
-      clipPath: "inset(0% 0% 0% 0%)",
-      transition: {
-        duration: 1.5,
-        ease: [0.22, 1, 0.36, 1]
-      }
-    }
-  };
-
-  const letterVariants: any = {
-    hidden: { 
-      opacity: 0, 
-      filter: "blur(8px)",
-      scale: 1.5,
-    },
+  const textVariants: any = {
+    hidden: { opacity: 0, y: 20 },
     visible: { 
       opacity: 1, 
-      filter: "blur(0px)",
-      scale: 1,
-      transition: {
-        duration: 0.8,
-        ease: "easeOut"
-      }
-    },
-  };
-
-  const subtitleVariants: any = {
-    hidden: { opacity: 0, y: 20 },
-    visible: {
-      opacity: 1,
       y: 0,
-      transition: {
-        duration: 1.5,
-        delay: 2,
-        ease: "easeOut"
-      },
-    },
+      transition: { duration: 0.8, ease: "easeOut" }
+    }
   };
 
   const dividerVariants: any = {
@@ -85,49 +83,47 @@ export function Hero() {
     visible: { 
       scaleX: 1, 
       opacity: 1,
-      transition: { duration: 1.5, delay: 1.5, ease: "easeInOut" }
+      transition: { duration: 1, ease: "easeInOut" }
     }
   };
 
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative pt-16 overflow-hidden">
-      <div className="text-center px-4 max-w-4xl mx-auto z-10">
-        <motion.div
-          variants={containerVariants}
-          initial="hidden"
-          animate="visible"
-        >
-          <div className="flex flex-col items-center mb-8">
+    <section id="hero" className="min-h-screen flex items-center justify-center relative pt-16 overflow-hidden px-4 md:px-8 max-w-7xl mx-auto z-10">
+      <motion.div
+        variants={containerVariants}
+        initial="hidden"
+        animate="visible"
+        className="w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+      >
+        {/* Left Side: Name and Info */}
+        <div className="flex flex-col items-center lg:items-start text-center lg:text-left">
+          <audio ref={audioRef} loop src="/background-music.mp3" />
+          <div 
+            className="flex flex-col items-center lg:items-start mb-6 cursor-pointer select-none"
+            onClick={handleNameClick}
+          >
             <motion.h1 
-              variants={lineVariants}
-              className="text-5xl md:text-7xl lg:text-8xl font-iosevka text-parchment leading-tight tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] flex justify-center"
+              variants={textVariants}
+              className="text-5xl md:text-7xl lg:text-8xl font-iosevka text-parchment leading-tight tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
             >
-              {firstName.split("").map((char, index) => (
-                <motion.span key={index} variants={letterVariants} className="inline-block">
-                  {char}
-                </motion.span>
-              ))}
+              {firstName}
             </motion.h1>
             <motion.h1 
-              variants={lineVariants}
-              className="text-5xl md:text-7xl lg:text-8xl font-iosevka text-gold-muted leading-tight tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)] flex justify-center"
+              variants={textVariants}
+              className="text-5xl md:text-7xl lg:text-8xl font-iosevka text-gold-muted leading-tight tracking-wider drop-shadow-[0_5px_15px_rgba(0,0,0,0.8)]"
             >
-              {lastName.split("").map((char, index) => (
-                <motion.span key={index} variants={letterVariants} className="inline-block">
-                  {char}
-                </motion.span>
-              ))}
+              {lastName}
             </motion.h1>
           </div>
 
           <motion.div 
             variants={dividerVariants}
-            className="h-px w-48 mx-auto bg-gradient-to-r from-transparent via-gold-muted to-transparent mb-8 origin-center" 
+            className="h-px w-full max-w-sm bg-gradient-to-r from-transparent via-gold-muted to-transparent lg:from-gold-muted lg:to-transparent mb-6 origin-left" 
           />
           
           <motion.div 
-            variants={subtitleVariants}
-            className="max-w-2xl mx-auto mb-12"
+            variants={textVariants}
+            className="max-w-md mb-8"
           >
             <p className="text-lg md:text-xl text-parchment/80 italic leading-relaxed mb-2">
               "{quote.text}"
@@ -138,10 +134,8 @@ export function Hero() {
           </motion.div>
 
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 2.5, duration: 1 }}
-            className="flex flex-col md:flex-row gap-6 justify-center items-center"
+            variants={textVariants}
+            className="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start w-full"
           >
             <Button 
               onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
@@ -163,8 +157,19 @@ export function Hero() {
               View GitHub
             </Button>
           </motion.div>
+        </div>
+
+        {/* Right Side: GitHub Heatmap */}
+        <motion.div 
+          variants={textVariants}
+          className="flex flex-col items-center justify-center w-full"
+        >
+          <div className="w-full max-w-xl">
+             <h3 className="text-gold-muted font-iosevka text-sm tracking-widest uppercase mb-4 text-center">GitHub Activity</h3>
+             <GithubHeatmap />
+          </div>
         </motion.div>
-      </div>
+      </motion.div>
     </section>
   );
 }

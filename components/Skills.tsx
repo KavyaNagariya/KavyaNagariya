@@ -50,11 +50,11 @@ export function Skills() {
   return (
     <section id="skills" className="py-24 px-4 md:px-8 max-w-5xl mx-auto">
       <motion.h2 
-        initial={{ opacity: 0, letterSpacing: "0.4em", filter: "blur(10px)" }}
-        whileInView={{ opacity: 1, letterSpacing: "0.1em", filter: "blur(0px)" }}
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true }}
-        transition={{ duration: 1.5, ease: "easeOut" }}
-        className="text-4xl md:text-5xl font-iosevka text-center text-gold-muted mb-16 drop-shadow-lg uppercase"
+        transition={{ duration: 1, ease: "easeOut" }}
+        className="text-4xl md:text-5xl font-iosevka text-center text-gold-muted mb-16 drop-shadow-lg uppercase tracking-widest"
       >
         Inventory
       </motion.h2>

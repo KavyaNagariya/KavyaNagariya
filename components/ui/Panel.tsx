@@ -2,7 +2,7 @@
 
 import { clsx } from 'clsx';
 import { twMerge } from 'tailwind-merge';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion } from 'framer-motion';
 import { useRef } from 'react';
 
 interface PanelProps {
@@ -26,62 +26,17 @@ export function Panel({
 }: PanelProps) {
   const ref = useRef<HTMLDivElement>(null);
   
-  const x = useMotionValue(0);
-  const y = useMotionValue(0);
-  const mouseX = useMotionValue(0);
-  const mouseY = useMotionValue(0);
-
-  const mouseXSpring = useSpring(x);
-  const mouseYSpring = useSpring(y);
-
-  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ["10deg", "-10deg"]);
-  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ["-10deg", "10deg"]);
-
-  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!ref.current) return;
-    const rect = ref.current.getBoundingClientRect();
-    const width = rect.width;
-    const height = rect.height;
-    
-    const currMouseX = e.clientX - rect.left;
-    const currMouseY = e.clientY - rect.top;
-    
-    const xPct = currMouseX / width - 0.5;
-    const yPct = currMouseY / height - 0.5;
-    
-    x.set(xPct);
-    y.set(yPct);
-    mouseX.set(currMouseX);
-    mouseY.set(currMouseY);
-  };
-
-  const handleMouseLeave = () => {
-    x.set(0);
-    y.set(0);
-  };
-
-  const background = useTransform(
-    [mouseX, mouseY],
-    ([xVal, yVal]) => `radial-gradient(600px circle at ${xVal}px ${yVal}px, rgba(195, 162, 103, 0.15), transparent 80%)`
-  );
-
   const defaultVariants: any = {
     hidden: { 
       opacity: 0, 
-      y: 40,
-      rotateX: 15,
-      filter: "blur(10px)",
-      clipPath: "inset(100% 0% 0% 0%)"
+      y: 20
     },
     visible: { 
       opacity: 1, 
       y: 0,
-      rotateX: 0,
-      filter: "blur(0px)",
-      clipPath: "inset(0% 0% 0% 0%)",
       transition: { 
-        duration: 1.2,
-        ease: [0.22, 1, 0.36, 1]
+        duration: 0.8,
+        ease: "easeOut"
       }
     }
   };
@@ -89,39 +44,27 @@ export function Panel({
   return (
     <motion.div
       ref={ref}
-      onMouseMove={handleMouseMove}
-      onMouseLeave={handleMouseLeave}
-      style={{
-        rotateX,
-        rotateY,
-        transformStyle: "preserve-3d",
-      }}
       variants={variants || defaultVariants}
       initial={initial}
       whileInView={whileInView}
       viewport={viewport}
       className={twMerge(
         'relative group',
-        'bg-[#0c0c0e]/90 backdrop-blur-md',
+        'bg-[#0c0c0e]/90 backdrop-blur-sm',
         'border border-gold-muted/20',
         'p-[1px] overflow-hidden rounded-sm',
+        'transition-transform duration-300 hover:scale-[1.02]',
         className
       )}
     >
-      {/* Animated Spotlight Effect */}
-      <motion.div 
+      {/* Static Spotlight Effect on Hover */}
+      <div 
         className="absolute inset-0 z-0 pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-        style={{ background }}
+        style={{ background: "radial-gradient(circle at center, rgba(195, 162, 103, 0.1), transparent 70%)" }}
       />
 
-      {/* 3D Content Container */}
-      <div 
-        style={{ transform: "translateZ(50px)" }}
-        className="relative z-10 p-6 h-full bg-[#0a0a0c]/40 backdrop-blur-sm"
-      >
-        {/* Subtle Noise Texture */}
-        <div className="absolute inset-0 opacity-[0.03] pointer-events-none bg-[url('https://grainy-gradients.vercel.app/noise.svg')]" />
-
+      {/* Content Container */}
+      <div className="relative z-10 p-6 h-full bg-[#0a0a0c]/40 backdrop-blur-[2px]">
         {/* Outer Ornamental Border */}
         <div className="absolute inset-0 border border-gold-muted/10 pointer-events-none transition-all duration-500 group-hover:border-gold-muted/30 group-hover:shadow-[inset_0_0_20px_rgba(195,162,103,0.05)]" />
         
