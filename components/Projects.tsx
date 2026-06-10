@@ -4,7 +4,18 @@ import { Panel } from "./ui/Panel";
 import { ExternalLink, Github } from "lucide-react";
 import { motion } from "framer-motion";
 
-const projects = [
+interface Project {
+  title: string;
+  type: string;
+  tech: string;
+  desc: string;
+  links: {
+    github: string;
+    live?: string;
+  };
+}
+
+const projects: Project[] = [
   {
     title: "Road Monitoring System",
     type: "Samsung Innovation Campus",
