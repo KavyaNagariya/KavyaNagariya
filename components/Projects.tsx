@@ -20,14 +20,11 @@ const projects = [
     links: { github: "https://github.com/KavyaNagariya/fresh_ecolearn" }
   },
   {
-    title: "HealthOnTrack",
-    type: "Web Application",
-    tech: "Web Dev, UI Design",
-    desc: "Responsive web application for tracking user health metrics. Focused on UI optimization for mobile devices and cross-platform compatibility.",
-    links: { 
-      live: "https://projecthealthontrack.netlify.app/", 
-      github: "https://github.com/KavyaNagariya/HealthOnTrack/tree/edits" 
-    }
+    title: "DocuMind Enterprise",
+    type: "Production-Grade RAG App",
+    tech: "FastAPI, LangChain, Pinecone, RAG",
+    desc: "A robust Retrieval-Augmented Generation application designed to search and interact with private document archives. Features a powerful chat interface with complex multi-turn conversations and source citations.",
+    links: { github: "https://github.com/KavyaNagariya/DocuMind" }
   },
   {
     title: "Radahn - Coding AI Agent",

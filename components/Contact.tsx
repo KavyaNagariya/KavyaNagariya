@@ -14,23 +14,6 @@ export function Contact() {
     },
   };
 
-  const pulseVariants: any = {
-    initial: { scale: 1, boxShadow: "0 0 0px rgba(195, 162, 103, 0)" },
-    animate: { 
-      scale: [1, 1.05, 1],
-      boxShadow: [
-        "0 0 0px rgba(195, 162, 103, 0)",
-        "0 0 15px rgba(195, 162, 103, 0.4)",
-        "0 0 0px rgba(195, 162, 103, 0)"
-      ],
-      transition: {
-        duration: 3,
-        repeat: Infinity,
-        ease: "easeInOut"
-      }
-    }
-  };
-
   return (
     <section id="contact" className="py-20 px-4 md:px-8 max-w-4xl mx-auto pb-32">
       <Panel 
@@ -71,9 +54,8 @@ export function Contact() {
               href="https://github.com/KavyaNagariya" 
               target="_blank" 
               rel="noopener noreferrer"
-              variants={pulseVariants}
-              initial="initial"
-              animate="animate"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               className="p-4 border border-gold-muted/40 rounded-full hover:border-gold-bright hover:bg-gold-muted/10 transition-all group"
               aria-label="GitHub"
             >
@@ -83,21 +65,36 @@ export function Contact() {
               href="https://linkedin.com/in/kavya-nagariya-a55107318" 
               target="_blank" 
               rel="noopener noreferrer"
-              variants={pulseVariants}
-              initial="initial"
-              animate="animate"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               className="p-4 border border-gold-muted/40 rounded-full hover:border-gold-bright hover:bg-gold-muted/10 transition-all group"
               aria-label="LinkedIn"
             >
               <Linkedin className="w-8 h-8 text-gold-muted group-hover:text-gold-bright" />
             </motion.a>
             <motion.a 
+              href="https://x.com/nagariya_kavya" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
+              className="p-4 border border-gold-muted/40 rounded-full hover:border-gold-bright hover:bg-gold-muted/10 transition-all group"
+              aria-label="X"
+            >
+              <svg 
+                viewBox="0 0 24 24" 
+                className="w-8 h-8 fill-gold-muted group-hover:fill-gold-bright transition-colors"
+                aria-hidden="true"
+              >
+                <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
+              </svg>
+            </motion.a>
+            <motion.a 
               href="https://buymeacoffee.com/mehukavyanp" 
               target="_blank" 
               rel="noopener noreferrer"
-              variants={pulseVariants}
-              initial="initial"
-              animate="animate"
+              whileHover={{ scale: 1.1 }}
+              whileTap={{ scale: 0.95 }}
               className="p-4 border border-gold-muted/40 rounded-full hover:border-gold-bright hover:bg-gold-muted/10 transition-all group"
               aria-label="Buy Me a Coffee"
             >
