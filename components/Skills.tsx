@@ -8,22 +8,22 @@ const skillCategories = [
   {
     title: "Languages",
     icon: Code,
-    items: ["C++", "Python", "C", "Java"]
+    items: ["Python", "C", "SQL", "HTML/CSS"]
   },
   {
-    title: "Core Arts",
+    title: "Frameworks & Databases",
     icon: Brain,
-    items: ["Data Structures", "Algorithms", "OOP", "Memory Management"]
+    items: ["FastAPI", "Celery", "PostgreSQL", "MongoDB", "Redis", "Pinecone"]
   },
   {
-    title: "Artifacts",
+    title: "Developer Tools",
     icon: Terminal,
-    items: ["Git & GitHub", "VS Code", "AI Coding Tools", "WSL"]
+    items: ["Git & GitHub", "Docker", "VS Code", "MCP"]
   },
   {
     title: "Arcane Tech",
     icon: Cpu,
-    items: ["Generative AI", "Agentic AI", "Prompt Engineering", "Web Dev"]
+    items: ["LangChain", "RAG", "Agentic AI", "Asynchronous Pipelines"]
   }
 ];
 

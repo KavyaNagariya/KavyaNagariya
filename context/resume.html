@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kavya Nagariya - Resume</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #4A4A4A;
+            line-height: 1.4;
+            margin: 0 auto;
+            max-width: 800px;
+            padding: 40px 20px;
+        }
+        h1 {
+            color: #0D3B66;
+            text-align: center;
+            margin: 0 0 5px 0;
+            font-size: 32px;
+        }
+        .contact-info {
+            text-align: center;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+        .contact-info a {
+            color: #0077B6;
+            text-decoration: none;
+        }
+        .contact-info a:hover {
+            text-decoration: underline;
+        }
+        section {
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #0D3B66;
+            font-size: 18px;
+            border-bottom: 1px solid #E0E0E0;
+            padding-bottom: 3px;
+            margin: 15px 0 8px 0;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .job-title-row {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-bottom: 2px;
+        }
+        .job-details-row {
+            display: flex;
+            justify-content: space-between;
+            font-style: italic;
+            font-size: 14px;
+            margin-bottom: 5px;
+        }
+        ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        li {
+            margin-bottom: 4px;
+            font-size: 14px;
+        }
+        .skills-list {
+            list-style: none;
+            padding-left: 0;
+        }
+        .skills-list li {
+            margin-bottom: 6px;
+        }
+        .skills-list strong {
+            color: #333;
+        }
+        p.objective {
+            font-size: 14px;
+            margin: 0;
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 15px;
+            margin-top: 10px;
+            margin-bottom: 3px;
+        }
+        .project-header a {
+            color: #0077B6;
+            text-decoration: none;
+            font-weight: normal;
+            font-size: 13px;
+        }
+        .project-header a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <h1>Kavya Nagariya</h1>
+    <div class="contact-info">
+        Lucknow, India | +91 88404 67405 | 
+        <a href="mailto:kavyanagaria402@gmail.com">kavyanagaria402@gmail.com</a> <br>
+        <a href="https://www.linkedin.com/in/kavya-nagariya-a55107318/" target="_blank">LinkedIn</a> | 
+        <a href="https://github.com/KavyaNagariya" target="_blank">GitHub</a> | 
+        <a href="https://kavya-nagariya.vercel.app/" target="_blank">Portfolio</a>
+    </div>
+
+    <!-- Objective -->
+    <section>
+        <h2>Objective</h2>
+        <p class="objective">
+            Aspiring Software Engineer currently pursuing a B.Tech in Computer Science (AI). Focused on building efficient, secure, and user-centered backend applications with a strong foundation in programming, command-line automation, and practical AI integrations. Seeking internships to apply hands-on engineering skills in product-driven environments.
+        </p>
+    </section>
+
+    <!-- Education -->
+    <section>
+        <h2>Education</h2>
+        <div class="job-title-row">
+            <span>Lucknow University</span>
+            <span>Lucknow, India</span>
+        </div>
+        <div class="job-details-row">
+            <span>Bachelor of Technology - Computer Science (Artificial Intelligence)</span>
+            <span>2024 – 2028 (Expected)</span>
+        </div>
+        <ul>
+            <li><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Object-Oriented Programming, Numerical & Statistical Techniques, Artificial Intelligence, Database Management Systems.</li>
+        </ul>
+    </section>
+
+    <!-- Technical Skills -->
+    <section>
+        <h2>Technical Skills</h2>
+        <ul class="skills-list">
+            <li><strong>Languages:</strong> Python, C, SQL, HTML/CSS</li>
+            <li><strong>Frameworks & Libraries:</strong> FastAPI, Celery, LangChain, SQLAlchemy, Pydantic, Tailwind CSS</li>
+            <li><strong>Databases & Storage:</strong> PostgreSQL, MongoDB, Redis, Pinecone, Cloudinary</li>
+            <li><strong>Developer Tools & CLI:</strong> Git, GitHub, Docker, VS Code, MCP (Model Context Protocol), Command Line Interfaces (CLI)</li>
+            <li><strong>Concepts:</strong> REST APIs, Retrieval-Augmented Generation (RAG), Asynchronous Task Queues, Database Concurrency (Row-Level Locking)</li>
+        </ul>
+    </section>
+
+    <!-- Projects -->
+    <section>
+        <h2>Projects</h2>
+
+        <div>
+            <div class="project-header">
+                <span>ViralGen AI <span style="font-weight: normal; font-size: 14px; color: #666;">| FastAPI, Celery, Redis, MongoDB Atlas, Groq/Gemini, React</span></span>
+                <a href="https://github.com/KavyaNagariya/ViralGenAI" target="_blank">GitHub Link</a>
+            </div>
+            <ul>
+                <li>Engineered an asynchronous, multi-modal social media campaign generator that decouples request ingestion from worker execution, achieving <strong>sub-200ms API response times</strong> using Celery and Redis.</li>
+                <li>Designed a multi-modal agentic pipeline incorporating Groq (Llama-3/4) for primary copy generation and a fallback Gemini 2.5 Flash adapter to guarantee failover resilience.</li>
+                <li>Integrated Hugging Face FLUX.1 for custom visual generation with aspect ratio optimization, automating media uploads to Cloudinary CDN and persisting campaign logs to MongoDB Atlas.</li>
+                <li>Wrote an asynchronous test suite using pytest and unit-testing mocks to validate API endpoints and background workers without consuming API quotas.</li>
+            </ul>
+        </div>
+
+        <div>
+            <div class="project-header">
+                <span>DocuMind Enterprise <span style="font-weight: normal; font-size: 14px; color: #666;">| FastAPI, Next.js, LangChain, Pinecone, Gemini, Docker</span></span>
+                <a href="https://github.com/KavyaNagariya/DocuMind" target="_blank">GitHub Link</a>
+            </div>
+            <ul>
+                <li>Built a context-aware Retrieval-Augmented Generation (RAG) platform using FastAPI and Next.js to query private document archives.</li>
+                <li>Designed a strict anti-hallucination prompt contract and query rephrasing engine with LangChain, forcing the model to refuse unsupported questions and automatically resolve pronouns in chat history.</li>
+                <li>Implemented vector search indexing using Pinecone serverless and HuggingFace embeddings mapped to metadata containing verified citations (page numbers and sources).</li>
+                <li>Secured API endpoints against abuse by integrating slowapi for IP-based rate limiting (5 requests/min) and containerized the services using Docker & Docker Compose.</li>
+            </ul>
+        </div>
+
+        <div>
+            <div class="project-header">
+                <span>Campus OLX <span style="font-weight: normal; font-size: 14px; color: #666;">| FastAPI, React, PostgreSQL, SQLAlchemy, Brevo API, Cloudinary</span></span>
+                <span>
+                    <a href="https://github.com/KavyaNagariya/Campus_OLX_frontend" target="_blank">GitHub</a> | 
+                    <a href="https://campus-olx-frontend-nu.vercel.app/" target="_blank">Live Link</a>
+                </span>
+            </div>
+            <ul>
+                <li>Developed a mobile-first, campus-exclusive peer-to-peer marketplace utilizing FastAPI (Python 3.12) and React 19 as an installable PWA with offline support.</li>
+                <li>Designed a concurrency-safe reservation lock mechanism using database row-level locking (<code>SELECT ... FOR UPDATE</code> in PostgreSQL via SQLAlchemy) to prevent double-booking collisions.</li>
+                <li>Created an automated reservation auto-expiry workflow and integrated the Brevo SMTP API to bypass cloud port restrictions and send transactional email notifications.</li>
+                <li>Engineered an image upload pipeline supporting up to 4 images per listing, handling file type/size validation and processing on the backend before uploading to Cloudinary CDN.</li>
+            </ul>
+        </div>
+
+        <div>
+            <div class="project-header">
+                <span>Radahn <span style="font-weight: normal; font-size: 14px; color: #666;">| Python, Gemini 2.5 Flash, Git</span></span>
+                <a href="https://github.com/KavyaNagariya/Radahn" target="_blank">GitHub Link</a>
+            </div>
+            <ul>
+                <li>Developed a secure, CLI-based AI coding assistant using Google's Gemini 2.5 Flash model to automate software engineering workflows.</li>
+                <li>Implemented structured function calling to enable safe file operations (read, write, edit, and python execution) within a sandboxed environment.</li>
+                <li>Enforced security constraints preventing path traversal vulnerabilities and restricted file-read sizes to a maximum of 10,000 characters to prevent token overflow.</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Achievements -->
+    <section>
+        <h2>Achievements</h2>
+        <ul>
+            <li><strong>UIDAI Data Hackathon 2026 Finalist:</strong> Selected as one of the top 30 finalist teams out of 30,000+ participating teams nationwide. Co-developed <strong>'Aadhaar Pulse'</strong>, a predictive analytics platform using Python on Google Colab to process large-scale datasets, uncovering governance insights and identifying service-demand hotspots.</li>
+            <li><strong>CS50x & CS50P Completion (Harvard University):</strong> Completed rigorous coursework in C, Python, Memory Management, and Data Structures.</li>
+            <li><strong>Samsung Innovation Campus Hackathon:</strong> Collaborated on AI-driven solutions for civic issues, focusing on practical implementation.</li>
+            <li><strong>Smart India Hackathon Participant:</strong> Competed in a national-level hackathon, collaborating to solve real-world problems under time constraints.</li>
+        </ul>
+    </section>
+
+    <!-- Interests -->
+    <section>
+        <h2>Interests</h2>
+        <ul>
+            <li><strong>Technical:</strong> Game Development, Open Source Contribution</li>
+            <li><strong>Hobbies:</strong> Chess, Gaming</li>
+        </ul>
+    </section>
+
+</body>
+</html>

@@ -40,20 +40,19 @@ export function About() {
           className="text-lg leading-relaxed space-y-6 text-parchment/90"
         >
           <motion.p variants={textVariants}>
-            I am a second-year B.Tech student in Computer Science (Artificial Intelligence) at the University of Lucknow. 
-            My journey began with the fundamental incantations of computer science, gradually evolving into the craft of 
-            building real-world applications through hackathons and disciplined study.
+            I am a B.Tech student in Computer Science (Artificial Intelligence) at the University of Lucknow.
+            My journey began with the fundamental incantations of computer science, gradually evolving into the craft of
+            building resilient, production-grade applications through hackathons and disciplined engineering.
           </motion.p>
           <motion.p variants={textVariants}>
-            Wielding the languages of C, C++, Python, and Java, I focus not just on the visible surface, but on the 
-            deep mechanics of how systems function. Through the trials of CS50x and CS50P, I have fortified my understanding 
-            of memory management and algorithmic problem-solving.
+            Wielding the languages of Python, C, SQL, and HTML/CSS, I focus on the deep mechanics of backend systems.
+            Through the trials of CS50x and CS50P, and by mastering FastAPI, Celery, and database concurrency, I have
+            fortified my understanding of data structures, asynchronous task execution, and secure API design.
           </motion.p>
           <motion.p variants={textVariants}>
-            I have tested my mettle in national arenas such as the Smart India Hackathon and Samsung Innovation Campus, 
-            collaborating to forge backend logic, data processing systems, and intuitive interfaces.
-            Currently, I seek to master the arcane arts of Data Structures and Algorithms, aiming to contribute to the 
-            great open-source archives.
+            I have tested my mettle in national arenas, standing as a Finalist in the UIDAI Data Hackathon 2026 out of 30,000+ teams,
+            where I co-forged 'Aadhaar Pulse' a predictive analytics platform. From the Smart India Hackathon to Samsung Innovation Campus,
+            I continue to design scalable RAG platforms, peer-to-peer marketplaces, and autonomous AI agents.
           </motion.p>
         </motion.div>
       </Panel>

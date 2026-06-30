@@ -17,31 +17,34 @@ interface Project {
 
 const projects: Project[] = [
   {
-    title: "Road Monitoring System",
-    type: "Samsung Innovation Campus",
-    tech: "Python, Data Processing",
-    desc: "A tool to analyze road defects and assist in infrastructure maintenance. Worked on backend logic, data modeling, and automated maintenance report generation.",
-    links: { github: "https://github.com/KavyaNagariya/road_monitoring" }
-  },
-  {
-    title: "EcoLearn",
-    type: "Smart India Hackathon",
-    tech: "Web Dev, UI/UX, Gamification",
-    desc: "Game-based learning platform for environmental education. Designed interactive modules and implemented gamification mechanics.",
-    links: { github: "https://github.com/KavyaNagariya/fresh_ecolearn" }
+    title: "ViralGen AI",
+    type: "Asynchronous Campaign Generator",
+    tech: "FastAPI, Celery, Redis, MongoDB, Groq, Gemini",
+    desc: "An asynchronous, multi-modal social media campaign generator that decouples request ingestion from worker execution, achieving sub-200ms API response times. Features a resilient multi-modal LLM pipeline with FLUX.1 visual generation.",
+    links: { github: "https://github.com/KavyaNagariya/ViralGenAI" }
   },
   {
     title: "DocuMind Enterprise",
     type: "Production-Grade RAG App",
-    tech: "FastAPI, LangChain, Pinecone, RAG",
-    desc: "A robust Retrieval-Augmented Generation application designed to search and interact with private document archives. Features a powerful chat interface with complex multi-turn conversations and source citations.",
+    tech: "FastAPI, Next.js, LangChain, Pinecone, Gemini, Docker",
+    desc: "A context-aware Retrieval-Augmented Generation (RAG) platform to query private document archives. Features strict anti-hallucination contracts, verified citations (page numbers and sources), and query rephrasing.",
     links: { github: "https://github.com/KavyaNagariya/DocuMind" }
   },
   {
-    title: "Radahn - Coding AI Agent",
-    type: "CLI Tool",
-    tech: "Python, Gemini AI",
-    desc: "Radahn is an AI-powered coding assistant CLI tool that uses Google's Gemini AI to help automate coding tasks. It allows an AI agent to safely interact with your codebase.",
+    title: "Campus OLX",
+    type: "P2P Marketplace PWA",
+    tech: "FastAPI, React 19, PostgreSQL, SQLAlchemy, Brevo API, Cloudinary",
+    desc: "A mobile-first, campus-exclusive peer-to-peer marketplace. Implements concurrency-safe reservation locks using database row-level locking (SELECT FOR UPDATE) to prevent double-booking collisions, plus offline PWA support.",
+    links: { 
+      github: "https://github.com/KavyaNagariya/Campus_OLX_frontend",
+      live: "https://campus-olx-frontend-nu.vercel.app/"
+    }
+  },
+  {
+    title: "Radahn",
+    type: "CLI Coding Agent",
+    tech: "Python, Gemini 2.5 Flash, Git",
+    desc: "A secure, CLI-based AI coding assistant that automates software engineering workflows. Implements structured function calling for sandboxed file operations with path traversal protection and token overflow limits.",
     links: { github: "https://github.com/KavyaNagariya/Radahn" }
   }
 ];
